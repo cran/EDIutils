@@ -1,7 +1,7 @@
-d6484bb7dbf596d9026633b3b65b519a *DESCRIPTION
+e0282464abb2d37fd0d44a1901788d07 *DESCRIPTION
 3532d70897ab4880c96c6ed1af147151 *LICENSE
 39fce16e1f874d0886b30becd35786dd *NAMESPACE
-4b9b942975b19669fbb4d03d40689ba6 *NEWS.md
+31b9fb35979eae85444a58cbb945d3c5 *NEWS.md
 71b9a03314b2bdef8c555af7d5aee26d *R/check_status_create.R
 8163b6021f5894dabf3387c7e5221f80 *R/check_status_evaluate.R
 b324bda58e3e6503104d08b8a379fa2f *R/check_status_update.R
@@ -75,7 +75,7 @@ d7d35996dfd7dd3864de6379bd37cdc3 *R/read_metadata_format.R
 b342161bee8df8d6fa5f8572d3d4a10f *R/search_data_packages.R
 ab72161e5d40a7abc10498176a6cb424 *R/update_data_package.R
 b27502cd30d0535cb65b47ec07f3c5f2 *R/utilities.R
-008498a46b96f7f6b876a1ab1c0a4339 *README.md
+88411861e2cfa334ba84b3dac0431c76 *README.md
 255dc38e1e10ab440070b45fead076a1 *build/vignette.rds
 e84970e5cfa9dc7c328bfd5d5d257679 *inst/CITATION
 5dda0be8b65f0086a0b1023d16ee10a2 *inst/doc/evaluate_and_upload.R
@@ -272,7 +272,7 @@ b0b32dcfc5735da73c92512a1086aa34 *tests/testthat/test_get_event_subscription_sch
 423b8876c36d6b07df235d203e9f0852 *tests/testthat/test_is_authorized.R
 b108f24b905bc4968e9483eed966bc9a *tests/testthat/test_list_active_reservations.R
 23cbaa65bfc8ef46329d3f92b70a65b4 *tests/testthat/test_list_data_descendants.R
-e167e26e31067fdd56e8a59781e9baa2 *tests/testthat/test_list_data_entities.R
+00fc5b687e420898dd332770d2890c50 *tests/testthat/test_list_data_entities.R
 36062dde5f38c5355978ab0721135e5b *tests/testthat/test_list_data_package_citations.R
 c0ecb1782044962ea265ae41225837a1 *tests/testthat/test_list_data_package_identifiers.R
 9d645f35c7136ec60836c19d2d60b9b0 *tests/testthat/test_list_data_package_revisions.R
@@ -290,7 +290,7 @@ f8a30f695b063355e83d8b2bb1dce561 *tests/testthat/test_list_user_data_packages.R
 ace3487e8a76c97da1bca127855b5eaf *tests/testthat/test_logout.R
 da29441215d5af3d5425c78663c5c35c *tests/testthat/test_query_event_subscriptions.R
 f73a1de53409e3aceed451d8398db15b *tests/testthat/test_read_data_entity.R
-47069daa8168dcfc12e931de5942e85b *tests/testthat/test_read_data_entity_checksum.R
+5e4e699042a15e8231b2588de6b1d93c *tests/testthat/test_read_data_entity_checksum.R
 0dad97bc991339888b3cb1b0a67d80c3 *tests/testthat/test_read_data_entity_name.R
 24ece2c146e316c942a23769852fb04f *tests/testthat/test_read_data_entity_names.R
 5fb6f8cb64c8cfdc1397ae56e8f965a1 *tests/testthat/test_read_data_entity_resource_metadata.R
@@ -303,13 +303,13 @@ c3d96e98a940512cb9c3978668c4ad9d *tests/testthat/test_read_data_package_doi.R
 ddeac0698ca4c481189ad3a4c4fb21d5 *tests/testthat/test_read_data_package_error.R
 b5235681ed0e93c61aaff27835c82ca0 *tests/testthat/test_read_data_package_from_doi.R
 a2aa1ef656ec3ded4edb38a8f8070025 *tests/testthat/test_read_data_package_report.R
-aeeb8930ed6149415c24cbcead6bb233 *tests/testthat/test_read_data_package_report_checksum.R
+910b46fa953eccf52d994634df27c012 *tests/testthat/test_read_data_package_report_checksum.R
 8547aab3d0ae04deb2770c01286a5f94 *tests/testthat/test_read_data_package_report_resource_metadata.R
 6d77700e5de8ce8036d2cad30b4c6bcb *tests/testthat/test_read_data_package_report_summary.R
 332f7279c021bccd036d16c48d15934f *tests/testthat/test_read_data_package_resource_metadata.R
 773e581c3aefc7d5780be85d2d212836 *tests/testthat/test_read_evaluate_report.R
 e478c5c6e51a865a75d95c960b0db49f *tests/testthat/test_read_metadata.R
-0506fcff2c70fba6fcbc049b9e643e80 *tests/testthat/test_read_metadata_checksum.R
+17c62067e751891bb5894adfa511b6b1 *tests/testthat/test_read_metadata_checksum.R
 17d2b3ff3b28b49514afbc96765de55d *tests/testthat/test_read_metadata_entity.R
 0fe96f2d3523d360db00ef98e14e2bee *tests/testthat/test_read_metadata_format.R
 b5965bad747cf2f562616a060010c452 *tests/testthat/test_read_metadata_resource_metadata.R

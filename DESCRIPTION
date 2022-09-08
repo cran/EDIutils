@@ -1,6 +1,6 @@
 Package: EDIutils
 Title: An API Client for the Environmental Data Initiative Repository
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: 
     c(person("Colin", "Smith", email = "colin.smith@wisc.edu", role = c("aut", "cre"), comment = "https://orcid.org/0000-0003-2261-9931"),
     person("Corinna", "Gries", role = "ctb", comment = "https://orcid.org/0000-0002-9091-6543"),
@@ -18,11 +18,11 @@ BugReports: https://github.com/ropensci/EDIutils/issues
 VignetteBuilder: knitr
 Language: en-US
 NeedsCompilation: no
-Packaged: 2022-06-28 23:38:45 UTC; Colin
+Packaged: 2022-09-05 14:54:22 UTC; csmith
 Author: Colin Smith [aut, cre] (<https://orcid.org/0000-0003-2261-9931>),
   Corinna Gries [ctb] (<https://orcid.org/0000-0002-9091-6543>),
   Jasmine Lai [rev] (<https://orcid.org/0000-0001-8888-547X>),
   Rodrigo Pires [rev] (<https://orcid.org/0000-0001-7384-6849>)
 Maintainer: Colin Smith <colin.smith@wisc.edu>
 Repository: CRAN
-Date/Publication: 2022-06-29 00:20:12 UTC
+Date/Publication: 2022-09-08 21:13:04 UTC

@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -54,7 +54,7 @@ library(EDIutils)
 #  #> Warn: 0
 #  #> Error: 0
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  # Read the evaluation report
 #  report <- read_evaluate_report(transaction, as = "char", env = "staging")
 #  message(report)

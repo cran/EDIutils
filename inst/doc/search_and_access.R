@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -41,20 +41,18 @@ library(EDIutils)
 #  res <- search_data_packages(query)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # A data package
+#  scope = "edi"
+#  identifier = "1047"
+#  revision = list_data_package_revisions(scope, identifier, filter = "newest")
+#  paste(scope, identifier, revision, sep = ".")
+#  #> [1] "edi.1047.2"
+
+## ----eval=FALSE---------------------------------------------------------------
 #  packageId <- "edi.1047.1"
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Request a zip archive
-#  transaction <- create_data_package_archive(packageId)
-#  transaction
-#  #> [1] "archive_edi.1047.1_14896683904724129"
-#  
-#  # Check status of the request (no response indicates success)
-#  read_data_package_error(transaction)
-#  
-#  # Download to path
-#  read_data_package_archive(packageId, transaction, path = tempdir())
+#  # Download data package to path
+#  read_data_package_archive(packageId, path = tempdir())
 #  #> |=============================================================| 100%
 #  dir(tempdir())
 #  #> [1] ""edi.1047.1.zip"

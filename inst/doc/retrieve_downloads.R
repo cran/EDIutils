@@ -1,16 +1,16 @@
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(EDIutils)
 #  library(dplyr)
 #  library(tidyr)
 #  library(ggplot2)
 #  library(lubridate)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  login()
 #  #> userID: "my_name"
 #  #> userPass: "my_secret"
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  # Construct the query
 #  query <- paste(
 #    "category=info",
@@ -26,7 +26,7 @@
 #  
 #  logout()
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  df_results <- df_report %>%
 #    filter(user != "robot") %>%
 #    filter(userAgent != "DataONE-Python/3.4.7 +http://dataone.org/") %>%
@@ -40,12 +40,12 @@
 #  
 #  df_results$date <- ymd(df_results$date)
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  df_downloads <- df_results %>%
 #    group_by(identifier) %>%
 #    summarise(n = n())
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  top20 <- arrange(df_downloads, desc(n)) %>% slice(1:20)
 #  
 #  ggplot(top20, aes(x = reorder(identifier, -n), y = n)) +
@@ -56,13 +56,13 @@
 #      title = "Downloads by Identifier"
 #    )
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  df_downloads_per_month <- df_results %>%
 #    mutate(month = month(date)) %>%
 #    group_by(month) %>%
 #    summarise(n = n())
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  df_downloads_daily <- df_results %>%
 #    group_by(date) %>%
 #    arrange(date) %>%

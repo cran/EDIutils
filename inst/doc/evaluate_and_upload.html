@@ -48,6 +48,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -370,10 +371,10 @@ authenticating:</p>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># Programmatically with a file containing userId and userPass arguments</span></span>
 <span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="fu">login</span>(<span class="at">config =</span> <span class="fu">paste0</span>(<span class="fu">tempdir</span>(), <span class="st">&quot;/config.txt&quot;</span>))</span></code></pre></div>
-<p>The <code>login()</code> function exchanges credentials for a
-temporary (~10 hour) authentication token, which is written to the
-<code>EDI_TOKEN</code> environment variable referenced by EDIutils
-functions requiring authentication.</p>
+<p>The <code>login()</code> function exchanges credentials for temporary
+(~10 hour) authentication tokens, which are written to the
+<code>EDI_TOKEN</code> and <code>AUTH_TOKEN</code> environment variable
+referenced by EDIutils functions requiring authentication.</p>
 </div>
 <div id="reserve-a-data-package-id" class="section level2">
 <h2>Reserve a Data Package ID</h2>

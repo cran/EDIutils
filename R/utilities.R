@@ -6,13 +6,17 @@
 #' @noRd
 #'
 bake_cookie <- function() {
-  token <- Sys.getenv("EDI_TOKEN")
-  if (token == "") {
+  edi_token <- Sys.getenv("EDI_TOKEN")
+  auth_token <- Sys.getenv("AUTH_TOKEN")
+  if (edi_token == "" || auth_token == "") {
     stop("Authentication token not found. Run 'login()' then try again.",
       call. = FALSE
     )
   }
-  cookie <- httr::set_cookies(`auth-token` = token)
+  cookie <- httr::set_cookies(
+    `edi-token` = edi_token,
+    `auth-token` = auth_token
+    )
   cookie$options$cookie <- curl::curl_unescape(cookie$options$cookie)
   return(cookie)
 }
@@ -119,6 +123,9 @@ config_test_eml <- function(userId, url) {
 #' written to file
 #' @param packageId (character) Package identifier, of the form
 #' "scope.identifier.revision", for the new EML file
+#' @param edi_id (character) The EDI ID of the user creating the test EML.
+#' An EDI ID can be obtained from the EDI Identity and Access 
+#' Manager (\url{https://auth.edirepository.org/auth/ui/signin}).
 #'
 #' @return (character) Full path to EML file written by this function to
 #' \code{path}. Should be \code{tempdir()} if executed in a testthat context.
@@ -128,16 +135,15 @@ config_test_eml <- function(userId, url) {
 #'
 #' @noRd
 #'
-create_test_eml <- function(path, packageId) {
+create_test_eml <- function(path, packageId, edi_id) {
   # Read EML template
   eml <- system.file("extdata", "eml.xml", package = "EDIutils")
   eml <- xml2::read_xml(eml)
   # Add packageId
   xml2::xml_attr(eml, "packageId") <- packageId
   # Add principal
-  dn <- create_dn(Sys.getenv("EDI_USERID"))
   principal <- xml2::xml_find_first(eml, ".//principal")
-  xml2::xml_text(principal) <- dn
+  xml2::xml_text(principal) <- edi_id
   # Add URL
   url <- xml2::xml_find_first(eml, ".//online/url")
   xml2::xml_text(url) <- Sys.getenv("EDI_TEST_URL")

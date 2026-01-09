@@ -6,8 +6,8 @@
 #' @param config (character) Path to config.txt, which contains \code{userId}
 #' and \code{userPass} (see details below)
 #'
-#' @return (character) A temporary (~10 hour) authentication token written to
-#' the system variable "EDI_TOKEN".
+#' @return (character) Temporary (~10 hour) authentication tokens written to
+#' the system variables "EDI_TOKEN" and "AUTH_TOKEN".
 #'
 #' @note Only works when authenticating with EDI credentials. Does not work
 #' when authenticating with ORCiD, GitHub, or Google credentials.
@@ -72,13 +72,27 @@ login <- function(userId = NULL, userPass = NULL, config = NULL) {
       regmatches(txt[i], regexpr(pattern, txt[i], perl = TRUE))
     )
   }
-  dn <- create_dn(userId, "EDI")
+  dn <- .create_dn(userId, "EDI")
   resp <- httr::GET(
     url = paste0(base_url("production"), "/package/eml"),
     config = httr::authenticate(dn, userPass, type = "basic"),
     handle = httr::handle("")
   )
   httr::stop_for_status(resp)
-  token <- httr::cookies(resp)$value
-  Sys.setenv(EDI_TOKEN = token)
+  token_name <- httr::cookies(resp)$name
+  token_value <- httr::cookies(resp)$value
+  Sys.setenv(EDI_TOKEN = token_value[token_name == "edi-token"])
+  Sys.setenv(AUTH_TOKEN = token_value[token_name == "auth-token"])
+}
+
+
+.create_dn <- function(userId, ou = "EDI") {
+  ou <- toupper(ou)
+  res <- paste0("uid=", userId, ",o=", ou, ",")
+  if (ou == "EDI") {
+    res <- paste0(res, "dc=edirepository,dc=org")
+  } else {
+    res <- paste0(res, "dc=ecoinformatics,dc=org")
+  }
+  return(res)
 }

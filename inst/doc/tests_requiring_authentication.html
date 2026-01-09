@@ -48,6 +48,7 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -364,8 +365,9 @@ are released.</p>
 <p>The first line of any test requiring authentication should include
 <code>skip_if_logged_out()</code>. This is an internal use only function
 located in R/utilities.R. Tests including this line will be skipped
-unless the R environment variable <code>EDI_TOKEN</code> is set. Use
-<code>login()</code> to set this variable.</p>
+unless the R environment variables <code>EDI_TOKEN</code> and
+<code>AUTH_TOKEN</code> are set. Use <code>login()</code> to set this
+variable.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">context</span>(<span class="st">&quot;Create journal citation&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
@@ -410,17 +412,20 @@ that often change from test to test.</p></li>
 <span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="co"># Create data package for evaluation</span></span>
 <span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>  identifier <span class="ot">&lt;-</span> <span class="fu">create_reservation</span>(<span class="at">scope =</span> <span class="st">&quot;edi&quot;</span>, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
 <span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  packageId <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;edi.&quot;</span>, identifier, <span class="st">&quot;.1&quot;</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  eml <span class="ot">&lt;-</span> <span class="fu">create_test_eml</span>(<span class="at">path =</span> <span class="fu">tempdir</span>(), <span class="at">packageId =</span> packageId)</span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">file.remove</span>(eml), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">after =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>  <span class="co"># Evaluate</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>  transaction <span class="ot">&lt;-</span> <span class="fu">evaluate_data_package</span>(eml, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">check_status_evaluate</span>(transaction, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>  <span class="fu">expect_true</span>(res)</span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  <span class="co"># Read evaluation report</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  report <span class="ot">&lt;-</span> <span class="fu">read_evaluate_report</span>(transaction, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="fu">expect_true</span>(<span class="st">&quot;xml_document&quot;</span> <span class="sc">%in%</span> <span class="fu">class</span>(report))</span>
-<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>  <span class="fu">delete_reservation</span>(<span class="st">&quot;edi&quot;</span>, identifier, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>})</span></code></pre></div>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>  eml <span class="ot">&lt;-</span> <span class="fu">create_test_eml</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>    <span class="at">path =</span> <span class="fu">tempdir</span>(), </span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>    <span class="at">packageId =</span> packageId,</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>    <span class="at">edi_id =</span> <span class="st">&quot;EDI-543afa80c859825d35d37d9111c24a4a65a0ff3e&quot;</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a>  <span class="fu">on.exit</span>(<span class="fu">file.remove</span>(eml), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">after =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>  <span class="co"># Evaluate</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  transaction <span class="ot">&lt;-</span> <span class="fu">evaluate_data_package</span>(eml, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">check_status_evaluate</span>(transaction, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>  <span class="fu">expect_true</span>(res)</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>  <span class="co"># Read evaluation report</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>  report <span class="ot">&lt;-</span> <span class="fu">read_evaluate_report</span>(transaction, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>  <span class="fu">expect_true</span>(<span class="st">&quot;xml_document&quot;</span> <span class="sc">%in%</span> <span class="fu">class</span>(report))</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>  <span class="fu">delete_reservation</span>(<span class="st">&quot;edi&quot;</span>, identifier, <span class="at">env =</span> <span class="st">&quot;staging&quot;</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 </div>
 <div id="run-tests" class="section level2">

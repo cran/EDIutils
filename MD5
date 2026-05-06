@@ -1,7 +1,7 @@
-214ea7f30536dcc3b4c2567e1af4e564 *DESCRIPTION
+9148077e6dec85f0e74e56760ec3a4d5 *DESCRIPTION
 0971d889f77122c7bcd035a0578e385b *LICENSE
 3945e671e9ebaff7cce289c538ebb412 *NAMESPACE
-bef7ccd1a16aeb128c69b345fe49cdd2 *NEWS.md
+784c5f257b791652aedebeff49e462bb *NEWS.md
 c0affaeeaf9b886064f7019292b7d669 *R/check_status_create.R
 c7b4df626280b0142017388a243638df *R/check_status_evaluate.R
 f6928290a046cc85f66347ed0f62384f *R/check_status_update.R
@@ -44,8 +44,8 @@ f065fe43be00b4ba982c7fc3393635e4 *R/list_data_package_citations.R
 39af7f9b6df4061c7a7e5fd17a877cf8 *R/list_service_methods.R
 92fcfab662025f8f7dc09c8094f88c30 *R/list_user_data_packages.R
 f98418642ce52b3f496377336757ecc6 *R/list_working_on.R
-751a65ac5763f23c5c677a308ed9c101 *R/login.R
-1abdafecf685c252604f3fc317265cc9 *R/logout.R
+29f54d2fa7f80d5df07867ef5a70251c *R/login.R
+a557b0458453bf18ceb6168177f96e75 *R/logout.R
 74b25afe505d3c5824fb244a13224368 *R/query_event_subscriptions.R
 43e4dfe62569a5dc7dad113a3ac8a716 *R/read_data_entity.R
 6c6db52bfcf2775dafaa1215d8d62ffd *R/read_data_entity_checksum.R
@@ -75,9 +75,9 @@ ed4ed493f326ea0f23069c70c0c95f56 *R/read_metadata_checksum.R
 4aa4bf1d1cbe09e15b5b0a4a2dc956e0 *R/read_metadata_resource_metadata.R
 aacf6880840cfe2bbfe343bd3f92aebb *R/search_data_packages.R
 9e90599864f9d0b45563b0270b908117 *R/update_data_package.R
-9279c57de44a09f76e0247c327e10a59 *R/utilities.R
+dd8902f8697a3a9303f45270188740c7 *R/utilities.R
 0008d875f7e8e8aeb26e73cfb91607cf *README.md
-34d36e10410259ad4300aae2fa756edd *build/vignette.rds
+ad4f7d98064fff5231156fd285f288d7 *build/vignette.rds
 83b9a408c4c3c24e911441885ab7c929 *inst/CITATION
 83ea1b531fd7b272069368708488c075 *inst/doc/evaluate_and_upload.R
 d009c6bb245eb915baca941edd0ea199 *inst/doc/evaluate_and_upload.Rmd
@@ -250,7 +250,7 @@ f553f625be345b7bcfe7d9f51d485838 *tests/fixtures/search_data_packages.yml
 75e60f1c447d9f6945e2efe9136558d0 *tests/testthat/_vcr/get_audit_report.yml
 16f73e1edb08e103f8d0cd06e31bb91d *tests/testthat/_vcr/list_principal_owner_citations.yml
 529c8b1df543a585394dcf47b065dc30 *tests/testthat/_vcr/list_user_data_packages.yml
-61dce69b33262efaba2691ec5cb77591 *tests/testthat/setup-EDIutils.R
+e7642a64de7cc084f6426ddb580248cc *tests/testthat/setup-EDIutils.R
 e7611855bc63a20a05330b7217d4233e *tests/testthat/test_check_status_create.R
 c82e1f09c444ed37b42e2bd2abb3548e *tests/testthat/test_check_status_evaluate.R
 f95b76bf1eb4dd5110b4a9f9dddc1ea6 *tests/testthat/test_check_status_update.R
@@ -323,7 +323,7 @@ b4e7b812323157887f3808ec9a0dc109 *tests/testthat/test_read_metadata_checksum.R
 5a8f4cca395e6216f84d73523de68074 *tests/testthat/test_read_metdata_dublin_core.R
 3e79130aad27a55e2b63b178d7644690 *tests/testthat/test_search_data_packages.R
 4b65cc77958f676ce11c9ad55075d02d *tests/testthat/test_update_data_package.R
-40fc6474da5f8c425d621b380ada11c2 *tests/testthat/test_utilities.R
+706f19cf44454af2fbf82275a6d1880e *tests/testthat/test_utilities.R
 ca0d26bb28513fb64d71b1dbbe4117bd *vignettes/downloads_by_date.png
 a6f58e8cb1c199d26385039d986e2722 *vignettes/downloads_by_identifier.png
 d009c6bb245eb915baca941edd0ea199 *vignettes/evaluate_and_upload.Rmd
